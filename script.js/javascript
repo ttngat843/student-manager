@@ -1,0 +1,39 @@
+let students = JSON.parse(localStorage.getItem("students")) || [];
+
+function renderStudents() {
+  const list = document.getElementById("student-list");
+  list.innerHTML = "";
+
+  students.forEach((student, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${student.name}</td>
+      <td>${student.id}</td>
+      <td>${student.class}</td>
+      <td>
+        <button onclick="deleteStudent(${index})">Xoá</button>
+      </td>
+    `;
+    list.appendChild(row);
+  });
+}
+
+function deleteStudent(index) {
+  students.splice(index, 1);
+  localStorage.setItem("students", JSON.stringify(students));
+  renderStudents();
+}
+
+document.getElementById("student-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const id = document.getElementById("id").value;
+  const cls = document.getElementById("class").value;
+
+  students.push({ name, id, class: cls });
+  localStorage.setItem("students", JSON.stringify(students));
+  renderStudents();
+  this.reset();
+});
+
+renderStudents();

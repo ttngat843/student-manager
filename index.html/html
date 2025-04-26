@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Quản lý Sinh viên</h1>
+
+  <form id="student-form">
+    <input type="text" id="name" placeholder="Họ tên" required>
+    <input type="text" id="id" placeholder="MSSV" required>
+    <input type="text" id="class" placeholder="Lớp" required>
+    <button type="submit">Thêm sinh viên</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Họ tên</th>
+        <th>MSSV</th>
+        <th>Lớp</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody id="student-list"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
