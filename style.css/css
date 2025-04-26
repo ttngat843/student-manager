@@ -1,28 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
-form {
-  margin-bottom: 20px;
+header {
+  background-color: #A4C639; /* Màu xanh lá chuối */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 }
 
-input {
-  margin-right: 10px;
-  padding: 5px;
+header .logo h1 {
+  margin: 0;
 }
 
-button {
-  padding: 5px 10px;
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
-table {
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.banner {
+  background: #A4C639; /* Màu xanh lá chuối */
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+.about, .menu, .contact, .order {
+  background-color: white;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about h2, .menu h2, .contact h2, .order h2 {
+  color: #A4C639; /* Màu xanh lá chuối cho tiêu đề */
+}
+
+.order form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.order label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.order input, .order select, .order button {
   width: 100%;
-  border-collapse: collapse;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
+.order button {
+  background-color: #A4C639; /* Màu xanh lá chuối */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.order button:hover {
+  background-color: #8c9f2f;
+}
+
+#order-result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
 }

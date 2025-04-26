@@ -1,39 +1,29 @@
-let students = JSON.parse(localStorage.getItem("students")) || [];
+document.addEventListener("DOMContentLoaded", function() {
+  const orderForm = document.getElementById("order-form");
+  
+  orderForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Ngừng hành động mặc định của form (gửi đi)
 
-function renderStudents() {
-  const list = document.getElementById("student-list");
-  list.innerHTML = "";
+    // Lấy thông tin người dùng nhập vào
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
 
-  students.forEach((student, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${student.name}</td>
-      <td>${student.id}</td>
-      <td>${student.class}</td>
-      <td>
-        <button onclick="deleteStudent(${index})">Xoá</button>
-      </td>
+    // Hiển thị kết quả đặt hàng
+    const orderResult = document.getElementById("order-result");
+    orderResult.innerHTML = `
+      <h3>Đặt hàng thành công!</h3>
+      <p><strong>Họ và tên:</strong> ${name}</p>
+      <p><strong>Số điện thoại:</strong> ${phone}</p>
+      <p><strong>Địa chỉ:</strong> ${address}</p>
+      <p><strong>Món đặt:</strong> ${item}</p>
+      <p><strong>Số lượng:</strong> ${quantity}</p>
+      <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
     `;
-    list.appendChild(row);
+    
+    // Làm trống form sau khi gửi
+    orderForm.reset();
   });
-}
-
-function deleteStudent(index) {
-  students.splice(index, 1);
-  localStorage.setItem("students", JSON.stringify(students));
-  renderStudents();
-}
-
-document.getElementById("student-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const name = document.getElementById("name").value;
-  const id = document.getElementById("id").value;
-  const cls = document.getElementById("class").value;
-
-  students.push({ name, id, class: cls });
-  localStorage.setItem("students", JSON.stringify(students));
-  renderStudents();
-  this.reset();
 });
-
-renderStudents();
